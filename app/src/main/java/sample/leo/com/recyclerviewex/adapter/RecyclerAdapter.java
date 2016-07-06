@@ -66,7 +66,8 @@ public class RecyclerAdapter<T> extends RecyclerView.Adapter<RecyclerView.ViewHo
                     footer.mProgressBar.setVisibility(View.GONE);
                     break;
                 case STATUS_LOADING:
-                    footer.tv_text.setVisibility(View.GONE);
+                    footer.tv_text.setVisibility(View.VISIBLE);
+                    footer.tv_text.setText("加载中...");
                     footer.mProgressBar.setVisibility(View.VISIBLE);
                     break;
             }
@@ -84,6 +85,7 @@ public class RecyclerAdapter<T> extends RecyclerView.Adapter<RecyclerView.ViewHo
      */
     public void setStatus(int status) {
         this.load_more_status = status;
+        notifyDataSetChanged();
     }
 
     @Override
